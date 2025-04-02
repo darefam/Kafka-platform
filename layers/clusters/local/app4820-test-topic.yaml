@@ -1,0 +1,11 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: app4820-test-topic
+  namespace: icoe-kafka
+  labels:
+    AppID: APP-4820
+    strimzi.io/cluster: my-cluster
+spec:
+  partitions: 10
+  replicas: 3

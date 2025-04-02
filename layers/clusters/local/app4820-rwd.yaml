@@ -1,0 +1,33 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    strimzi.io/cluster: my-cluster
+  name: app4820-rwd
+  namespace: icoe-kafka
+spec:
+  authentication:
+    type: tls
+  authorization:
+    acls:
+    - host: '*'
+      operations:
+      - All
+      resource:
+        name: '*'
+        patternType: literal
+        type: topic
+    - host: '*'
+      operations:
+      - All
+      resource:
+        name: '*'
+        patternType: literal
+        type: group
+    - host: '*'
+      operations:
+      - Describe
+      - DescribeConfigs
+      resource:
+        type: cluster
+    type: simple
